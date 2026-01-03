@@ -1,41 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Contador Twitch</title>
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<style>
-  body {
-    background: transparent;
-    color: black;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  .scoreboard {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    font-size: 60px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Marcador</title>
+  <style>
+    body {
+      background: transparent;
+      color: black;
+      font-size: 80px;
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
 </head>
-
 <body>
-  <div class="scoreboard">
-    <div>
-      <div>Equipo A</div>
-      <div id="a">0</div>
-    </div>
-    <div>
-      <div>Equipo B</div>
-      <div id="b">0</div>
-    </div>
-  </div>
- <script type="module" src="script.js"></script>
-<script>
+
+  <div>Equipo A: <span id="a">0</span></div>
+  <div>Equipo B: <span id="b">0</span></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
   const firebaseConfig = {
     apiKey: "AIzaSyBLGXAammzcMVx9FT0cQxgLMFoAZp6R0LI",
     authDomain: "contador-twitch.firebaseapp.com",
@@ -45,20 +31,22 @@
     appId: "1:174460937156:web:c2c8c2bac2abd703d37a91"
   };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-  db.collection("marcador").doc("actual")
-    .onSnapshot(doc => {
-      const data = doc.data();
-      if (!data) return;
-      document.getElementById("a").innerText = data.equipoA;
-      document.getElementById("b").innerText = data.equipoB;
+    onValue(ref(db, "equipoA"), snap => {
+      document.getElementById("a").textContent = snap.val() ?? 0;
     });
-</script>
+
+    onValue(ref(db, "equipoB"), snap => {
+      document.getElementById("b").textContent = snap.val() ?? 0;
+    });
+  </script>
 
 </body>
 </html>
+
+
 
 
 
