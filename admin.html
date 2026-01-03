@@ -18,6 +18,7 @@
 
   window.actualizar = () => {
     const valor = document.getElementById("valor").value;
-    set(ref(db, "puntaje"), Number(valor));
+    set(ref(db, "equipoA"), nuevoValorA);
+    set(ref(db, "equipoB"), nuevoValorB);
   };
 </script>
