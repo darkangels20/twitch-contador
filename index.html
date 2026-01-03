@@ -91,17 +91,18 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    onValue(ref(db, "teamA"), snap => {
+    onValue(ref(db, "equipoA"), snap => {
       document.getElementById("scoreA").textContent = snap.val() ?? 0;
     });
 
-    onValue(ref(db, "teamB"), snap => {
+    onValue(ref(db, "equipoB"), snap => {
       document.getElementById("scoreB").textContent = snap.val() ?? 0;
     });
   </script>
 
 </body>
 </html>
+
 
 
 
