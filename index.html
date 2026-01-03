@@ -4,69 +4,42 @@
   <meta charset="UTF-8">
   <title>Marcador Twitch</title>
 <style>
-body {
-  margin: 0;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 200px; /* distancia entre equipos */
-  text-align: center;
-}
-
-.team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.name {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.score {
-  font-size: 72px;
-  font-weight: bold;
-}
-
-/* 🔥 VS ANIMADO 🔥 */
-.vs {
-  font-size: 64px;
-  font-weight: 900;
-  color: #ff3b3b;
-  animation: vsPulse 1.5s infinite ease-in-out;
-  text-shadow: 0 0 15px rgba(255, 59, 59, 0.8);
-}
-
-/* Animación */
-@keyframes vsPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
+  body {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
   }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-}
 
+  .container {
+    width: 100%;
+    display: flex;
+    gap: 1500px;
+    text-align: center;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .score {
+    font-size: 72px;
+    font-weight: bold;
+  }
 </style>
+
 </head>
 <body>
 
@@ -111,6 +84,7 @@ const firebaseConfig = {
 
 </body>
 </html>
+
 
 
 
