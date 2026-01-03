@@ -13,11 +13,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Escuchar el puntaje global
-const scoreRef = ref(db, "puntaje");
+onValue(ref(db, "equipoA"), (snap) => {
+  document.getElementById("scoreA").innerText = snap.val() ?? 0;
+});
 
-onValue(scoreRef, (snapshot) => {
-  const valor = snapshot.val();
-  console.log("Puntaje recibido:", valor);
-  document.getElementById("score").innerText = valor ?? 0;
+onValue(ref(db, "equipoB"), (snap) => {
+  document.getElementById("scoreB").innerText = snap.val() ?? 0;
 });
