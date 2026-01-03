@@ -3,18 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Marcador Twitch</title>
-  <style>
-    body {
-      background: transparent;
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 80px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 100vh;
-    }
-  </style>
+<style>
+  body {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .team {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .name {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .score {
+    font-size: 64px;
+    font-weight: bold;
+  }
+</style>
+
 </head>
 <body>
 
