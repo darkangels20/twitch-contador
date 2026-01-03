@@ -2,21 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Marcador</title>
+  <title>Marcador Twitch</title>
   <style>
     body {
       background: transparent;
-      color: black;
+      color: white;
+      font-family: Arial, sans-serif;
       font-size: 80px;
       display: flex;
       justify-content: space-around;
+      align-items: center;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
 
-  <div>Equipo A: <span id="a">0</span></div>
-  <div>Equipo B: <span id="b">0</span></div>
+  <div>
+    TEAM AERODACTYL<br>
+    <span id="a">0</span>
+  </div>
+
+  <div>
+    TEAM ARCHEOPS<br>
+    <span id="b">0</span>
+  </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -31,6 +41,7 @@ const firebaseConfig = {
   messagingSenderId: "174460937156",
   appId: "1:174460937156:web:c2c8c2bac2abd703d37a91"
 };
+
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
