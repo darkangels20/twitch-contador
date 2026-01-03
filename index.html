@@ -18,14 +18,18 @@
 </head>
 <body>
 
-  <div>
-    TEAM AERODACTYL<br>
-    <span id="a">0</span>
-  </div>
+  <div class="container">
 
-  <div>
-    TEAM ARCHEOPS<br>
-    <span id="b">0</span>
+    <div class="team">
+      <span class="name">TEAM AERODACTYL</span>
+      <span class="score" id="a">0</span>
+    </div>
+
+    <div class="team">
+      <span class="name">TEAM ARCHEOPS</span>
+      <span class="score" id="b">0</span>
+    </div>
+
   </div>
 
   <script type="module">
@@ -42,7 +46,6 @@ const firebaseConfig = {
   appId: "1:174460937156:web:c2c8c2bac2abd703d37a91"
 };
 
-
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
@@ -57,6 +60,8 @@ const firebaseConfig = {
 
 </body>
 </html>
+
+
 
 
 
