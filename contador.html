@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contador Twitch</title>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<style>
+  body {
+    background: transparent;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    font-size: 60px;
+  }
+</style>
+</head>
+
+<body>
+  <div class="scoreboard">
+    <div>
+      <div>Equipo A</div>
+      <div id="a">0</div>
+    </div>
+    <div>
+      <div>Equipo B</div>
+      <div id="b">0</div>
+    </div>
+  </div>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBLGXAammzcMVx9FT0cQxgLMFoAZp6R0LI",
+    authDomain: "contador-twitch.firebaseapp.com",
+    projectId: "contador-twitch",
+    storageBucket: "contador-twitch.appspot.com",
+    messagingSenderId: "174460937156",
+    appId: "1:174460937156:web:c2c8c2bac2abd703d37a91"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  db.collection("marcador").doc("actual")
+    .onSnapshot(doc => {
+      const data = doc.data();
+      if (!data) return;
+      document.getElementById("a").innerText = data.equipoA;
+      document.getElementById("b").innerText = data.equipoB;
+    });
+</script>
+
+</body>
+</html>
